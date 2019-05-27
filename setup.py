@@ -10,10 +10,10 @@ setup(
     packages=['database_utils'],
     zip_safe=False,
     install_requires=['requests', 'click', 'psycopg2', 'traceback',
-                      'mysql-connector-python', 'configparser'],
+                      'mysql-connector-python', 'configparser', 'pandas'],
     include_package_data=False,
     # scripts=['bin/syncredash'],
-    entry_points = {
-        'console_scripts': ['syncredash=report_redash.command_line:main'],
-    }
+    # entry_points = {
+    #     'console_scripts': ['syncredash=report_redash.command_line:main'],
+    # }
 )
