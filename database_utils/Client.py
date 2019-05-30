@@ -32,5 +32,5 @@ class Client:
         """
         Perform write actions.
         """
-        postgres_helper.execute(conf=self.conf, sql=query)
+        postgres_helper.execute(conf=self.conf, query=query)
         return
