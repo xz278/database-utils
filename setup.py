@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='database_utils',
-    version='1.0.0',
+    version='1.0.1',
     description='Database Utils',
     url='https://github.com/xz278/database_utils.git',
     author='Xian Zhang',

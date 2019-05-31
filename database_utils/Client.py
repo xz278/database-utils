@@ -4,6 +4,7 @@ Client class
 """
 import psycopg2
 from database_utils import helper, postgres_helper
+import time
 
 
 class Client:
@@ -26,11 +27,19 @@ class Client:
         """
         Performa query that read data ("select" statement)
         """
-        return postgres_helper.fetchall(config=self.conf, sql=query)
+        t1 = time.time()
+        ret = postgres_helper.fetchall(config=self.conf, sql=query)
+        t2 = time.time()
+        t = t2 - t1
+        print('Finished in {:.2f} seconds.'.format(t))
 
     def write(self, query):
         """
         Perform write actions.
         """
+        t1 = time.time()
         postgres_helper.execute(conf=self.conf, query=query)
+        t2 = time.time()
+        t = t2 - t1
+        print('Finished in {:.2f} seconds.'.format(t))
         return
