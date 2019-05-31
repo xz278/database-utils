@@ -4,7 +4,7 @@ setup(
     name='database_utils',
     version='1.0.1',
     description='Database Utils',
-    url='https://github.com/xz278/database_utils.git',
+    url='https://github.com/xz278/database-utils.git',
     author='Xian Zhang',
     author_email='zhang.xian.0414@outlook.com',
     packages=['database_utils'],
