@@ -32,6 +32,7 @@ class Client:
         t2 = time.time()
         t = t2 - t1
         print('Finished in {:.2f} seconds.'.format(t))
+        return ret
 
     def write(self, query):
         """
