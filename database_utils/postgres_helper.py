@@ -8,6 +8,7 @@ Helper functions for postgres connections.
 """
 import psycopg2, traceback
 import pandas as pd
+import datetime
 
 
 def fetchall(config, sql):
