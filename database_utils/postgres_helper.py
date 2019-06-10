@@ -175,3 +175,34 @@ def insert_into_rdf(data, table_info, table_name, conf):
                                   table_info=table_info)
     execute(conf=conf, query=query)
     return
+
+
+def list_tables(conf, schema='public'):
+    """
+    List tables in the database.
+    """
+    query = """\
+    select
+        distinct(tablename)
+    from PG_TABLE_DEF
+    where schemaname = '{}'
+    """.format(schema)
+    tables = execute(conf=conf, query=query)
+    return tables
+
+
+def list_columns(conf, schema, table):
+    """
+    List columns in a table.
+    """
+    query = """\
+    select
+        "column",
+        type,
+        encoding
+    from PG_TABLE_DEF
+    where schemaname = '{}' and
+          tablename = '{}'
+    """.format(schema, table)
+    cols = execute(conf=conf, query=query)
+    return cols

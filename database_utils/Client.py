@@ -54,7 +54,6 @@ class Client:
         print('Finished in {:.2f} seconds.'.format(t))
         return
 
-
     def create_table(self, table_info, table_name):
         """
         Create table
@@ -73,7 +72,6 @@ class Client:
         t = t2 - t1
         print('Finished in {:.2f} seconds.'.format(t))
         return
-
 
     def insert_dataframe(self, table_info, table_name, data):
         """
@@ -94,3 +92,30 @@ class Client:
         t = t2 - t1
         print('Finished in {:.2f} seconds.'.format(t))
         return
+
+    def list_tables(self, schema='public'):
+        """
+        List tables
+        """
+        if self.database in ['readshift', 'postgres']:
+            tables = postgres_helper.list_tables(conf=self.conf, schema=schema)
+        else:
+            raise Exception("database not supported yet: '{}'"
+                            .fomat(self.database))
+
+        return tables
+
+    def list_columns(self, tables, schema=None):
+        """
+        List columns in a table
+        """
+        if self.database in ['readshift', 'postgres']:
+            if schema is None:
+                raise Exception("argument 'schema' is required when"
+                                "database type is 'redshift' or 'postgres'")
+            cols = postgres_helper.list_columns(conf=self.conf, schema=schema)
+        else:
+            raise Exception("database not supported yet: '{}'"
+                            .fomat(self.database))
+
+        return tables
