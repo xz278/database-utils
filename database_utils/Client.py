@@ -56,7 +56,19 @@ class Client:
 
     def create_table(self, table_info, table_name):
         """
-        Create table
+        >>> create_table(table_info=table_info,
+                             table_name='test_table',
+                             conf=redshift_config)
+        Parameters:
+        -----------
+        table_info: pandas.DataFrame
+            Table schema, with columns ['field', 'type', 'type_param'].
+
+        table_name: str
+            Name of the table to be created.
+
+        conf: dict
+            Redshift connection configuration.
         """
         t1 = time.time()
         if self.database in ['redshift', 'postgres']:
@@ -107,7 +119,7 @@ class Client:
 
     def list_columns(self, tables, schema=None):
         """
-        List columns in a table
+        List columns in a tables
         """
         if self.database in ['redshift', 'postgres']:
             if schema is None:
