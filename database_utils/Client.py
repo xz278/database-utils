@@ -97,7 +97,7 @@ class Client:
         """
         List tables
         """
-        if self.database in ['readshift', 'postgres']:
+        if self.database in ['redshift', 'postgres']:
             tables = postgres_helper.list_tables(conf=self.conf, schema=schema)
         else:
             raise Exception("database not supported yet: '{}'"
@@ -109,7 +109,7 @@ class Client:
         """
         List columns in a table
         """
-        if self.database in ['readshift', 'postgres']:
+        if self.database in ['redshift', 'postgres']:
             if schema is None:
                 raise Exception("argument 'schema' is required when"
                                 "database type is 'redshift' or 'postgres'")
