@@ -187,7 +187,7 @@ def list_tables(conf, schema='public'):
     from PG_TABLE_DEF
     where schemaname = '{}'
     """.format(schema)
-    tables = fetchall(conf=conf, query=query)
+    tables = fetchall(config=conf, sql=query)
     return tables
 
 
@@ -204,5 +204,5 @@ def list_columns(conf, schema, table):
     where schemaname = '{}' and
           tablename = '{}'
     """.format(schema, table)
-    cols = fetchall(conf=conf, query=query)
+    cols = fetchall(config=conf, sql=query)
     return cols
