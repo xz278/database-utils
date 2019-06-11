@@ -33,7 +33,7 @@ class Client:
             ret = postgres_helper.fetchall(config=self.conf, sql=query)
         else:
             raise Exception("database not supported yet: '{}'"
-                            .fomat(self.database))
+                            .format(self.database))
         t2 = time.time()
         t = t2 - t1
         print('Finished in {:.2f} seconds.'.format(t))
@@ -48,7 +48,7 @@ class Client:
             postgres_helper.execute(conf=self.conf, query=query)
         else:
             raise Exception("database not supported yet: '{}'"
-                            .fomat(self.database))
+                            .format(self.database))
         t2 = time.time()
         t = t2 - t1
         print('Finished in {:.2f} seconds.'.format(t))
@@ -67,7 +67,7 @@ class Client:
             )
         else:
             raise Exception("database not supported yet: '{}'"
-                            .fomat(self.database))
+                            .format(self.database))
         t2 = time.time()
         t = t2 - t1
         print('Finished in {:.2f} seconds.'.format(t))
@@ -87,7 +87,7 @@ class Client:
             )
         else:
             raise Exception("database not supported yet: '{}'"
-                            .fomat(self.database))
+                            .format(self.database))
         t2 = time.time()
         t = t2 - t1
         print('Finished in {:.2f} seconds.'.format(t))
@@ -101,7 +101,7 @@ class Client:
             tables = postgres_helper.list_tables(conf=self.conf, schema=schema)
         else:
             raise Exception("database not supported yet: '{}'"
-                            .fomat(self.database))
+                            .format(self.database))
 
         return tables
 
@@ -116,6 +116,6 @@ class Client:
             cols = postgres_helper.list_columns(conf=self.conf, schema=schema)
         else:
             raise Exception("database not supported yet: '{}'"
-                            .fomat(self.database))
+                            .format(self.database))
 
         return tables
