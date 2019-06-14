@@ -134,4 +134,4 @@ class Client:
             raise Exception("database not supported yet: '{}'"
                             .format(self.database))
 
-        return tables
+        return cols
