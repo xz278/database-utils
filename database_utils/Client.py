@@ -117,15 +117,19 @@ class Client:
 
         return tables
 
-    def list_columns(self, tables, schema=None):
+    def list_columns(self, table, schema=None):
         """
-        List columns in a tables
+        List columns in a table
         """
         if self.database in ['redshift', 'postgres']:
             if schema is None:
                 raise Exception("argument 'schema' is required when"
                                 "database type is 'redshift' or 'postgres'")
-            cols = postgres_helper.list_columns(conf=self.conf, schema=schema)
+            cols = postgres_helper.list_columns(
+                conf=self.conf,
+                schema=schema,
+                table=table
+            )
         else:
             raise Exception("database not supported yet: '{}'"
                             .format(self.database))
