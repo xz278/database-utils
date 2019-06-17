@@ -9,20 +9,26 @@ import time
 
 class Client:
 
-    def __init__(self, name):
+    def __init__(self, name=None, conf=None):
         """
         Parameters
         ----------
         name: str
             Name of connections.
         """
-        self.name = name
-        self.database = name.split('_')[0]
-        conf = helper.read_database_conf()
-        if name not in conf:
-            raise Exception("no database connection with name '{}'".format(name))
+        if name is None and conf is None:
+            raise Exception("must specify one of the arguments: "
+                            "'name' or 'conf'")
+        if conf is not None:
+            self.conf = conf
         else:
-            self.conf = conf[name]
+            self.name = name
+            self.database = name.split('_')[0]
+            conf = helper.read_database_conf()
+            if name not in conf:
+                raise Exception("no database connection with name '{}'".format(name))
+            else:
+                self.conf = conf[name]
 
     def read(self, query):
         """
