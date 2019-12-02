@@ -9,7 +9,7 @@ setup(
     author_email='zhang.xian.0414@outlook.com',
     packages=['database_utils'],
     zip_safe=False,
-    install_requires=['requests', 'click', 'psycopg2',
+    install_requires=['requests', 'click', 'psycopg2-binary',
                       'mysql-connector-python', 'configparser', 'pandas'],
     include_package_data=False,
     # scripts=['bin/syncredash'],
